@@ -45,13 +45,13 @@ class Publishing {
             }
         }
 
-        project.tasks.create("snapshot") {
+        project.tasks.create("publishSnapshot") {
             dependsOn "publishSnapshotPublicationToSnapshotRepository"
             group = "publishing"
             description = "Runs the build and publishes a snapshot to nexus"
         }
 
-        project.tasks.create("release") {
+        project.tasks.create("publishRelease") {
             dependsOn "publishReleasePublicationToReleaseRepository"
             group = "publishing"
             description = "Runs the build and publishes a release to nexus"

@@ -14,8 +14,8 @@ class ReleasePluginTest {
     void "canoncial example"() {
         Project project = createProject()
         assert project.plugins.findPlugin("com.trevorism.gradle-release-plugin")
-        assert project.tasks.findByPath("snapshot")
-        assert project.tasks.findByPath("release")
+        assert project.tasks.findByPath("publishSnapshot")
+        assert project.tasks.findByPath("publishRelease")
 
         assert "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-snapshots/" == project.snapshotRepository
         assert "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases/" == project.releaseRepository
@@ -25,8 +25,8 @@ class ReleasePluginTest {
     void "if the project does not have the right properties, publishing tasks are not added"() {
         Project project = createProjectWithoutProperties()
         assert project.plugins.findPlugin("com.trevorism.gradle-release-plugin")
-        assert !project.tasks.findByPath("snapshot")
-        assert !project.tasks.findByPath("release")
+        assert !project.tasks.findByPath("publishSnapshot")
+        assert !project.tasks.findByPath("publishRelease")
     }
 
 

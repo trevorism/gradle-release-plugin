@@ -40,13 +40,13 @@ publishing {
     }
 }
 
-task snapshot {
+task publishSnapshot {
     dependsOn "publishSnapshotPublicationToSnapshotRepository"
     group = "publishing"
     description = "Runs the build and publishes a snapshot to nexus"
 }
 
-task release {
+task publishRelease {
     dependsOn "publishReleasePublicationToReleaseRepository"
     group = "publishing"
     description = "Runs the build and publishes a release to nexus"
