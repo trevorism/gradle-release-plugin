@@ -10,11 +10,11 @@
 buildscript {
     repositories {
         maven {
-            url uri("http://trevorism-build.eastus.cloudapp.azure.com/nexus/maven-releases")
+            url uri("http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases")
         }
     }
     dependencies {
-        classpath 'com.trevorism:gradle-release-plugin:0.2.0'
+        classpath 'com.trevorism:gradle-release-plugin:0.3.0'
     }
 }
 

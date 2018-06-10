@@ -16,8 +16,6 @@ repositories {
 
 dependencies {
     compile gradleApi()
-    compile 'com.trevorism:eventhub-client:1.4.0'
-
     compile 'org.codehaus.groovy:groovy-all:2.4.12'
     testCompile 'junit:junit:4.12'
 }
