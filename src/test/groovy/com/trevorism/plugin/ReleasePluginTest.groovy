@@ -19,6 +19,8 @@ class ReleasePluginTest {
 
         assert "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-snapshots/" == project.snapshotRepository
         assert "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases/" == project.releaseRepository
+
+        assert project.publishing.publications.size() == 2
     }
 
     @Test
@@ -44,6 +46,7 @@ class ReleasePluginTest {
         project.with{
             project.ext.nexusUsername = "test"
             project.ext.nexusPassword = "test"
+            apply plugin: 'java'
             apply plugin: 'com.trevorism.gradle-release-plugin'
 
         }
