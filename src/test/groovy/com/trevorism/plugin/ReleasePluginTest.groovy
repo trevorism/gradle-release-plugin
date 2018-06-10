@@ -9,16 +9,64 @@ import org.junit.Test
  */
 class ReleasePluginTest {
 
+
     @Test
-    void testApply() {
+    void "canoncial example"() {
         Project project = createProject()
         assert project.plugins.findPlugin("com.trevorism.gradle-release-plugin")
+        assert project.tasks.findByPath("snapshot")
+        assert project.tasks.findByPath("release")
+
+        assert "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-snapshots/" == project.snapshotRepository
+        assert "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases/" == project.releaseRepository
+    }
+
+    @Test
+    void "if the project does not have the right properties, publishing tasks are not added"() {
+        Project project = createProjectWithoutProperties()
+        assert project.plugins.findPlugin("com.trevorism.gradle-release-plugin")
+        assert !project.tasks.findByPath("snapshot")
+        assert !project.tasks.findByPath("release")
+    }
+
+
+    @Test
+    void "repository overrides"() {
+        Project project = createProjectWithRepositoryOverrides()
+        assert project.plugins.findPlugin("com.trevorism.gradle-release-plugin")
+
+        assert "foo" == project.snapshotRepository
+        assert "bar" == project.releaseRepository
     }
 
     static Project createProject(){
         Project project = ProjectBuilder.builder().withName("foo").build()
         project.with{
+            project.ext.nexusUsername = "test"
+            project.ext.nexusPassword = "test"
             apply plugin: 'com.trevorism.gradle-release-plugin'
+
+        }
+        return project
+    }
+
+    static Project createProjectWithoutProperties(){
+        Project project = ProjectBuilder.builder().withName("foo").build()
+        project.with{
+            apply plugin: 'com.trevorism.gradle-release-plugin'
+        }
+        return project
+    }
+
+    static Project createProjectWithRepositoryOverrides(){
+        Project project = ProjectBuilder.builder().withName("foo").build()
+        project.with{
+
+            project.ext.snapshotRepositoryOverride = "foo"
+            project.ext.releaseRepositoryOverride = "bar"
+
+            apply plugin: 'com.trevorism.gradle-release-plugin'
+
         }
         return project
     }

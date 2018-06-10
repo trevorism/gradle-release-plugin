@@ -1,0 +1,53 @@
+if(!hasProperty("nexusUsername")){
+    throw new GradleException("You must configure the nexusUsername gradle property")
+}
+if(!hasProperty("nexusPassword")){
+    throw new GradleException("You must configure the nexusPassword gradle property")
+}
+
+publishing {
+    publications {
+        snapshot(MavenPublication) {
+            groupId "com.trevorism"
+            artifactId project.name
+            version "${version}-SNAPSHOT"
+            from components.java
+        }
+        release(MavenPublication) {
+            groupId "com.trevorism"
+            artifactId project.name
+            version version
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            name "release"
+            url "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases/"
+            credentials{
+                username = project.nexusUsername
+                password = project.nexusPassword
+            }
+        }
+        maven {
+            name "snapshot"
+            url "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-snapshots/"
+            credentials{
+                username = project.nexusUsername
+                password = project.nexusPassword
+            }
+        }
+    }
+}
+
+task snapshot {
+    dependsOn "publishSnapshotPublicationToSnapshotRepository"
+    group = "publishing"
+    description = "Runs the build and publishes a snapshot to nexus"
+}
+
+task release {
+    dependsOn "publishReleasePublicationToReleaseRepository"
+    group = "publishing"
+    description = "Runs the build and publishes a release to nexus"
+}
