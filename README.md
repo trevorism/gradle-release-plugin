@@ -6,13 +6,22 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/trevorism/gradle-release-plugin)
 
 
-## Perform a release in:
+## Description:
 
-* Nexus -- Publishes the artifact to the release repository
+This plugin publishes the default software component to a local nexus server: [Nexus](http://trevorism-build.eastus.cloudapp.azure.com/nexus/)
+
+## Prerequisites
+
+Assumes the credentials are stored as properties. The can be stored in ~/.gradle/gradle.properties:
+
+```properties
+nexusUsername=username
+nexusPassword=pass
+```
 
 ## Usage
 
-```$xslt
+```groovy
 buildscript {
     repositories {
         maven {
@@ -31,11 +40,12 @@ plugins{
 apply plugin: "com.trevorism.gradle.release"
 ```
 
+Save an artifact using one of the following commands:
+
 `gradle publishSnapshot`
 
 `gradle publishRelease`
 
+## About
 
-Plugin Information -- https://plugins.gradle.org/plugin/com.trevorism.gradle-release-plugin
-
-About me -- http://www.trevorism.com
+About me -- https://www.trevorism.com
