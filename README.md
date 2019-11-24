@@ -14,7 +14,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.trevorism:gradle-release-plugin:0.3.0'
+        classpath 'com.trevorism:gradle-release-plugin:0.4.0'
     }
 }
 
