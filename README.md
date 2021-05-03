@@ -25,11 +25,11 @@ nexusPassword=pass
 buildscript {
     repositories {
         maven {
-            url uri("http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases")
+            url uri("https://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases")
         }
     }
     dependencies {
-        classpath 'com.trevorism:gradle-release-plugin:0.4.0'
+        classpath 'com.trevorism:gradle-release-plugin:1.0.0'
     }
 }
 
