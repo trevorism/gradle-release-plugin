@@ -13,8 +13,13 @@ repositories {
 
 dependencies {
     implementation gradleApi()
-    implementation 'org.codehaus.groovy:groovy-all:2.5.14'
     testImplementation 'junit:junit:4.13.2'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
 }
 
 check.dependsOn "jacocoTestReport"
