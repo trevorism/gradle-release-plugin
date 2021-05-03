@@ -13,13 +13,8 @@ repositories {
 
 dependencies {
     implementation gradleApi()
-    implementation 'org.codehaus.groovy:groovy-all:3.0.7'
+    implementation 'org.codehaus.groovy:groovy-all:2.5.14'
     testImplementation 'junit:junit:4.13.2'
-}
-
-compileJava {
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
 }
 
 check.dependsOn "jacocoTestReport"
