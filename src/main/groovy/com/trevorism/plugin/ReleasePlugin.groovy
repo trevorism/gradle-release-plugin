@@ -20,8 +20,8 @@ class ReleasePlugin implements Plugin<Project> {
             project.logger.warn("Property: nexusPassword was not configured. Publishing will not be possible.")
         }
 
-        project.ext.snapshotRepository = "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-snapshots/"
-        project.ext.releaseRepository = "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases/"
+        project.ext.snapshotRepository = "https://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-snapshots/"
+        project.ext.releaseRepository = "https://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases/"
 
         if(project.hasProperty("snapshotRepositoryOverride")){
             project.ext.snapshotRepository = project.snapshotRepositoryOverride

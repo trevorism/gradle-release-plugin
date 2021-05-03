@@ -23,7 +23,7 @@ publishing {
     repositories {
         maven {
             name "release"
-            url "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases/"
+            url "https://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases/"
             credentials{
                 username = project.nexusUsername
                 password = project.nexusPassword
@@ -31,7 +31,7 @@ publishing {
         }
         maven {
             name "snapshot"
-            url "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-snapshots/"
+            url "https://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-snapshots/"
             credentials{
                 username = project.nexusUsername
                 password = project.nexusPassword

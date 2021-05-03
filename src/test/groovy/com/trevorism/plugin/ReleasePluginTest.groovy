@@ -17,8 +17,8 @@ class ReleasePluginTest {
         assert project.tasks.findByPath("publishSnapshot")
         assert project.tasks.findByPath("publishRelease")
 
-        assert "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-snapshots/" == project.snapshotRepository
-        assert "http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases/" == project.releaseRepository
+        assert "https://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-snapshots/" == project.snapshotRepository
+        assert "https://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases/" == project.releaseRepository
 
         assert project.publishing.publications.size() == 2
     }
