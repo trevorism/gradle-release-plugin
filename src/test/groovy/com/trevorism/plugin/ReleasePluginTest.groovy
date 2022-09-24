@@ -11,7 +11,7 @@ import org.junit.Test
 class ReleasePluginTest {
 
     @Test
-    void "canoncial example"() {
+    void "canonical example"() {
         Project project = createProject()
         assert project.plugins.findPlugin("com.trevorism.gradle.release")
         assert project.tasks.findByPath("publishRelease")
