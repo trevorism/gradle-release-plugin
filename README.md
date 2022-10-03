@@ -1,5 +1,5 @@
 # gradle-release-plugin
-![Build](https://img.shields.io/github/workflow/status/trevorism/gradle-release-plugin/build)
+![Build](https://github.com/trevorism/gradle-release-plugin/actions/workflows/build.yml/badge.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/trevorism/gradle-release-plugin)
 ![GitHub language count](https://img.shields.io/github/languages/count/trevorism/gradle-release-plugin)
 ![GitHub top language](https://img.shields.io/github/languages/top/trevorism/gradle-release-plugin)
