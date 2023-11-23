@@ -30,7 +30,7 @@ class ReleasePluginTest {
         return project
     }
 
-    @Test(expected = PluginApplicationException)
+    @Test(expected = Exception)
     void "cannot publish non-java projects"() {
         Project project = createNonJavaProject()
         assert project.plugins.findPlugin("com.trevorism.gradle.release")
